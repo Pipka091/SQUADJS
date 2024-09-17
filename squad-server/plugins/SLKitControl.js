@@ -103,7 +103,7 @@ export default class SLKitControl extends BasePlugin {
          if (player.isLeader && (player.role.includes("SLPilot") || player.role.includes("SLCrewman"))) {
 
            for (const squad of this.squads) {
-             if (squad.squadID === player.squadID && squad.size > 4) {
+             if (squad.squadID === player.squadID && squad.size > this.maxVehicleCount) {
                const isTracked = player.eosID in this.trackedPlayers;
                if (!isTracked) {
                  const d1 =  Date.now() + 1000 * 60 * 5
