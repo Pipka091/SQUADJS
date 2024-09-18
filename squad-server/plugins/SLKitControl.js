@@ -45,7 +45,7 @@ export default class SLKitControl extends BasePlugin {
 
     this.trackedPlayers = {};
 
-    this.updateSquadLeadTime = 5 * 1000;
+    this.updateSquadLeadTime = 30 * 1000;
     this.players = [];
 
     this.updateSquadLead = this.updateSquadLead.bind(this);
