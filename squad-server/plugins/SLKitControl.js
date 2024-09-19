@@ -99,7 +99,7 @@ export default class SLKitControl extends BasePlugin {
           continue;
         }
 
-         if (player.isLeader && (player.role.includes("SLPilot") || player.role.includes("SLCrewman"))) {
+         if (player.isLeader && player.role.includes("SL") && (player.role.includes("Pilot") || player.role.includes("Crewman"))) {
 
            for (const squad of this.squads) {
              if (squad.teamID === player.teamID && squad.squadID === player.squadID && squad.size > this.maxVehicleCount) {
