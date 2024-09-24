@@ -40,10 +40,10 @@ export default class AutoTKWarn extends BasePlugin {
 
   async onTeamkill(info) {
     if (info.attacker && this.options.attackerMessage) {
-      this.server.rcon.warn(info.attacker.eosID, this.options.attackerMessage);
+      this.server.rcon.warn(info.attacker.eosID, `${this.options.attackerMessage} ${info.victim.name}`);
     }
     if (info.victim && this.options.victimMessage) {
-      this.server.rcon.warn(info.victim.eosID, this.options.victimMessage);
+      this.server.rcon.warn(info.victim.eosID, `${this.options.victimMessage} ${info.attacker.name}`);
     }
   }
 }
