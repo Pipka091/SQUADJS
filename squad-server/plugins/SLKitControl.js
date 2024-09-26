@@ -59,7 +59,8 @@ export default class SLKitControl extends BasePlugin {
   }
 
   async updateSquadLead (){
-    if(!this.server.currentLayer || (this.server.currentLayer && !this.server.currentLayer.name.includes('Seed'))) {
+    const currentMap = await this.server.rcon.getCurrentMap();
+    if(!currentMap.layer.includes('Seed')) {
       this.squads = await this.server.rcon.getSquads()
       this.players = await this.server.rcon.getListPlayers();
 
