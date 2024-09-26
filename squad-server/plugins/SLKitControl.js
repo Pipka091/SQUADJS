@@ -45,7 +45,7 @@ export default class SLKitControl extends BasePlugin {
 
     this.trackedPlayers = {};
 
-    this.updateSquadLeadTime = 30 * 1000;
+    this.updateSquadLeadTime = 20 * 1000;
     this.players = [];
 
     this.updateSquadLead = this.updateSquadLead.bind(this);
@@ -59,8 +59,7 @@ export default class SLKitControl extends BasePlugin {
   }
 
   async updateSquadLead (){
-
-    if(!this.server.currentLayer.name.includes('Seed')) {
+    if(!this.server.currentLayer || (this.server.currentLayer && !this.server.currentLayer.name.includes('Seed'))) {
       this.squads = await this.server.rcon.getSquads()
       this.players = await this.server.rcon.getListPlayers();
 
